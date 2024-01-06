@@ -3,18 +3,26 @@
         <h1>
             {{  title }}
         </h1>
+        <ButtonHeader @toggle-add-task="$emit('toggle-add-task')" 
+        :text="showAddTask ? 'Close':'Add'" 
+        :color="showAddTask ? 'red':'green'"/>
     </header>
 </template>
 
 <script>
+    import ButtonHeader from './Button'
     export default {
         name: 'HeaderTitle',
         props:{
             title : {
                 type : String,
-                default: "Hello"
+                default: "Hello",
+        },
+        showAddTask : Boolean
+        },
+        components:{ 
+            ButtonHeader,
         }
-    }
     }
 </script>
 
